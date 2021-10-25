@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <div class="alert alert-danger" id="error-alert" hidden="true">
+    </div>
+    <div class="card login-card">
+        <h5 class="card-header"> Please enter your details to signup </h5>
+        <div class="card-body">
+            <form id="signup-form">
+                {% csrf_token %}
+                <div>
+                    <div class='field-name'>First Name:
+                        <input style="float: right;" type='text' id='su-first-name' required></div>
+                    <div class='field-name'>Last Name:
+                        <input style="float: right;" type='text' id='su-last-name' required></div>
+                    <div class='field-name'>Username:
+                        <input style="float: right;" type='text' maxlength='16' id='su-username' required></div>
+                    <div class='field-name'>Email:
+                        <input style="float: right;" type='email' id='signup-email' required></div>
+                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+                        <label for="su-dob">Date of Birth:</label>
+                        <input placeholder="Select date" type="date" id="su-dob" class="form-control" required> 
+                        <i class="fas fa-calendar input-prefix"></i>
+                    </div>
+                    <br/>
+                    <div class='field-name'>Password:
+                        <input style="float: right;" type='password' maxlength='16' id='password' required></div>
+                    <div class='field-name'>Confirm Password:
+                        <input style="float: right;" type='password' maxlength='16' id='password2' required></div>
+                    <span id='message'></span>
+
+                </div>
+                <input style="float: right" type='submit' class="btn btn-primary" id="su-submit" value='Submit'>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  endblock %}

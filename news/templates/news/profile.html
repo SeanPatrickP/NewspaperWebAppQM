@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="item-container profile-page">
+    <div class="row title">
+        <h1>Welcome back {{ profile.user.username }}</h1>
+    </div>
+    <div id="personalInfo" class="container-fluid profile-section">
+        <h2>Personal Information</h2>
+        {% if profile.image or profile.image%}
+        <img id='profile-pic' class="profile-pic" src='{{profile.image.url}}'></img>
+        {% else %}
+        <img id='profile-pic' class="profile-pic" src="{% static 'news/blank-profile.png' %}"></img>
+        {% endif %}
+        <div class="profile-info-text col">
+            {% if profile.user.first_name and profile.user.last_name %}
+            <p>Name: {{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+            {% endif %}
+            <p>Email: {{ profile.user.email }}</p>
+            {% if profile.DOB %}
+            <p>Date of Birth: {{ profile.DOB }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div id="profileEdit" class="container-fluid col-sm profile-section">
+        <h2>Edit your profile</h2>
+        <form id='profile-edit-form' enctype='multipart/form-data' class="form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <h5 for="category-picker">Choose your favourite categories</h5>
+                <div class="row">
+                    <select class="selectpicker col-sm-8" id="category-picker" multiple>
+                        <option value="" disabled>Choose your categories of interest</option>
+                        {% for category in categories %}
+                            {% if category in profile.fave_categories %}
+                                <option class='option{{category}}' value="{{category}}" selected>{{category}}</option>
+                            {% else %}
+                                <option class='option{{category}}' value="{{category}}">{{category}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <button type=submit class='btn btn-primary profile-btn col' id='saveProfileBtn'>Save categories</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <h5 for="img_file">Upload new profile picture</h5>
+                <div class="row">
+                    <input type="file" id="img_file" class="col-sm-8">
+                    <button type=submit class='btn btn-secondary profile-btn col' id='removePictureBtn'>Delete picture</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

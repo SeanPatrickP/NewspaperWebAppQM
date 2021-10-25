@@ -1,0 +1,181 @@
+.flex-grid {
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.item-container {
+    margin-bottom: 25px;
+    margin-top: 25px !important;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.article-header {
+    margin-bottom: 10px;
+}
+
+.article-cat-but {
+    margin-bottom: 10px;
+}
+
+.filter-index {
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    background-color: #D3D3D3;
+    position: relative;
+}
+
+.article-filter-but-header {
+    margin-left: 10px;
+    float: left;
+    margin-top: 5px;
+}
+
+.filters-header {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    width: 50px;
+    display: inline-block;
+}
+
+.filter-index {
+    display: flex;
+}
+
+.filters-header-container {
+    width: 100px;
+    height: 50px;
+}
+
+.filters-container {
+    flex-grow: 1;
+    height: 50px;
+    width: 100%;
+}
+
+.field-name {
+    padding-bottom: 1rem;
+}
+
+.login-card {
+    margin-top: 30vh;
+    margin-left: calc(50vw - 12.5rem);
+    width: 25rem;
+}
+
+.comment-text {
+    display: inline;
+}
+
+.comment-outer {
+    height: 110px;
+    margin-bottom: 10px;
+    border-bottom-style: dashed;
+}
+
+.action-button {
+    float: right;
+}
+
+.modal-lg {
+    width: 900px;
+  }
+
+.link {
+    background: none;
+    border: none;
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.reaction-text {
+    float: left;
+    flex: 1;
+}
+
+.comments-header {
+    flex: auto;
+    width: 100%;
+    margin-bottom: 16px !important;
+}
+
+.comment {
+    flex: auto;
+    width: 85%;
+    height: 100px;
+    overflow: scroll;
+    float: left;
+}
+
+.comments-outer {
+    max-height: 500px;
+    overflow: scroll;
+    flex: auto;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.profile-page {
+    background: white;
+}
+
+.profile-section {
+    background: #D3D3D3;
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    padding: 10px;
+    border-radius: 25px;
+    max-height: 300px;
+    max-width: 95%;
+    height: auto;
+    width: auto;
+}
+
+.profile-info-text {
+    margin-left: 10px;
+}
+
+.form-data {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.profile-btn {
+    font-size: 12px;
+    padding: 20px 16px;
+    border-radius: 25px;
+    margin-top: 5px;
+    margin-left: 15px;
+    transition-duration: 0.4s;
+    float: right;
+}
+
+#saveProfileBtn {
+    margin-bottom: 20px;
+}
+
+#category-picker {
+    width: 80%;
+    align: center;
+    padding: 10px;
+}
+
+.dropdown-toggle {
+    margin-top: 5px;
+}
+
+#img_file {
+    margin-top: 5px;
+}

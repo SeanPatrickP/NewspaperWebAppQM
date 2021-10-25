@@ -1,0 +1,21 @@
+<div>
+    <div class="card login-card">
+        <h5 class="card-header"> Please enter your details to login </h5>
+        <div class="card-body">
+            <form class="post-form-login" method='POST' action="{% url 'news:logging' %}">
+                {% csrf_token %}
+                <div>
+                    <div class='field-name'>Username:
+                        <input style="float: right;" type='text' maxlength='16' name='username'></div>
+                    <div class='field-name'>Password:
+                        <input style="float: right;" type='password' maxlength='16' name='password'><br>
+                    </div>
+                </div>
+                <input style="float: right" type='submit' class="btn btn-primary" value='Login'>
+            </form>
+            <input style="float: right" type='submit' class="sign-up" value='Sign Up'>
+            <p class="choice">Foo</p>
+            <p class="choice">Foo</p>
+        </div>
+    </div>
+</div>

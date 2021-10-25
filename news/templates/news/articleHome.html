@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="filter-index">
+        <div class="filters-header-container">
+            <p class="filters-header" id="article-filter-header">Filters:</p>
+        </div>
+        <div class="filters-container" id="article-filters-container"> 
+            {% for category in categories %}   
+                <button class="btn btn-danger article-filter-but-header" id="filter-button-{{category}}">{{category}}</button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="flex-grid" id="articles-grid">
+    {% for article in articles %}
+        <div class="item-container bg-dark text-center text-white" id={{article.category}}>
+            <div class="my-3 py-3">
+                <p hidden="true" id="article-ident">{{article.ident}}</p>
+                <div>
+                    <button class="link display-5 article-header">{{article.title}}</button>
+                </div>
+                    <button class="btn btn-primary article-cat-but">{{article.category}}</button>
+                <div class="article-content">
+                    {{article.content}}
+                </div>    
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="news-modal">
+      {% csrf_token %}
+        <div class="modal-dialog modal-xl" role="document">
+            <p hidden="true" id="news-modal-ident"></p>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="news-modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="alert alert-danger" id="denied-alert" hidden="true">
+            </div>
+            <div class="modal-body" id="news-modal-content">
+            </div>
+            <div class="modal-footer">
+              <h6 class="comments-header">Comments (most recent at top)</h6>
+              <div id="comments-space" class="comments-outer">
+              </div>
+            </div>
+            <div class="modal-footer comments-panel">
+              <textarea class="form-control" id="comment-add-area" aria-label="With textarea"></textarea>
+              <button type="button" class="btn btn-primary comment-add-button">Add Comment</button>
+            </div>
+            <div class="modal-footer">
+                <p class="reaction-text" id="news-modal-reaction"></p>
+                <button type="button" class="btn btn-success reaction-button reaction-button-like" id="news-modal-like">Like</button>
+                <button type="button" class="btn btn-danger reaction-button reaction-button-dislike" id="news-modal-dislike">Dislike</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
